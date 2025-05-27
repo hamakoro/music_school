@@ -1,0 +1,104 @@
+@use "../foundation/variable" as ver;
+@use "../object/component/component";
+
+header {
+  padding: 14px 100px;
+
+  .header_content {
+    display: flex;
+    gap: 33px;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      transition: 0.3s;
+
+      &:not(.c_button):hover {
+        opacity: 0.6;
+      }
+
+      .logo {
+        width: 192px;
+
+        picture {
+          source {
+          }
+          img {
+          }
+        }
+      }
+    }
+
+    nav.header_nav {
+      padding-left: 244px;
+      font-weight: 700;
+
+      ul {
+        display: flex;
+        gap: 33px;
+
+        li {
+          position: relative;
+          transition: opacity 0.3s ease;
+
+          &::after {
+            position: absolute;
+            left: 0;
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-color: #333;
+            bottom: -1px;
+            transform: scale(0, 1);
+            transform-origin: center top;
+            transition: transform 0.3s;
+          }
+
+          &:hover {
+            &::after {
+              transform: scale(1, 1);
+            }
+          }
+
+          a {
+            transition: 0.3s;
+
+            &:not(.c_button):hover {
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+
+    .header_contact {
+      a.c_button.button__head {
+        font-size: 15px;
+        width: 150px;
+        height: 45px;
+        display: block;
+        line-height: 2.2;
+        padding: 6px 28px 4px;
+        border: 1px solid ver.$main_color;
+        &:hover {
+          background-position: right center;
+          background-size: 200% auto;
+          -webkit-animation: pulse 2s infinite;
+          animation: ripple 1.5s infinite;
+          color: #fff;
+        }
+        @keyframes ripple {
+          0% {
+            box-shadow: 0 0 0 0 ver.$main_color;
+          }
+          70% {
+            box-shadow: 0 0 0 10px rgb(27 133 251 / 0%);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgb(27 133 251 / 0%);
+          }
+        }
+      }
+    }
+  }
+}

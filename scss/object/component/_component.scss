@@ -1,0 +1,6 @@
+@use '../../foundation/variable' as var;
+
+.c_button {
+  background-color: var.$main_color;
+  color: #fff;
+}
